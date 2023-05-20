@@ -1,4 +1,4 @@
-package com.okta.developer.jugtours.model;
+package com.okta.developer.jugtours.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

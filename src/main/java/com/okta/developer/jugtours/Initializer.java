@@ -2,12 +2,11 @@ package com.okta.developer.jugtours;
 
 import com.okta.developer.jugtours.model.Event;
 import com.okta.developer.jugtours.model.Group;
-import com.okta.developer.jugtours.model.GroupRepository;
+import com.okta.developer.jugtours.repository.GroupRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.Instant;
-import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.stream.Stream;
 

@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### untracked project files ###
+project-source.java
+project_source.java
