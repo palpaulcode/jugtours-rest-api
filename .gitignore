@@ -117,3 +117,6 @@ e2e
 **/*.spec.ts
 
 *.env
+
+**/node_modules
+node_modules
