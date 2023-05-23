@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.text.MessageFormat;
 
-import static java.util.List.of;
+import static java.util.Map.of;
 
 @RestController
 public class UserController {
@@ -35,10 +35,12 @@ public class UserController {
 
     @PostMapping("/api/logout")
     public ResponseEntity<?> logout(HttpServletRequest request) {
-        // send logout url to client so they can initiate logout
-        var issuerUri =  registration.getProviderDetails().getIssuerUri();
+        // send logout URL to client so they can initiate logout
+        var issuerUri = registration.getProviderDetails().getIssuerUri();
         var originUrl = request.getHeader(HttpHeaders.ORIGIN);
         Object[] params = {issuerUri, registration.getClientId(), originUrl};
+        // Yes! We @ Auth0 should have an end_session_endpoint in our OIDC metadata.
+        // It's not included at the time of this writing, but will be coming soon!
         var logoutUrl = MessageFormat.format("{0}v2/logout?client_id={1}&returnTo={2}", params);
         request.getSession().invalidate();
         return ResponseEntity.ok().body(of("logoutUrl", logoutUrl));
