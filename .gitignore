@@ -115,3 +115,5 @@ e2e
 
 # exclude from any folder
 **/*.spec.ts
+
+*.env

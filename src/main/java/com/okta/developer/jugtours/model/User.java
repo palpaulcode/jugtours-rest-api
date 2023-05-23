@@ -8,7 +8,7 @@ import java.util.Objects;
 @Table(name = "users")
 public class User {
 
-    @Id
+    /*@Id
     @SequenceGenerator(
             name = "user_sequence",
             sequenceName = "user_sequence",
@@ -17,26 +17,29 @@ public class User {
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
             generator = "user_sequence"
-    )
-    private Long id;
+    )*/
+    @Id
+    @GeneratedValue
+    private String id;
     private String name;
     private String email;
 
     public User() {
     }
 
-    public User(String name, String email) {
+    public User(String id, String name, String email) {
+        this.id = id;
         this.name = name;
         this.email = email;
     }
 
     // getters, setters, hashCode, toString
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
